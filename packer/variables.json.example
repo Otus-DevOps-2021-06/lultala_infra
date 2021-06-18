@@ -1,7 +1,7 @@
 {
-  "key": "path to key.json",
+  "key": "files/key.json",
   "folder_id": "folder_id",
   "imageid": "image_id",
-  "image_name": "image_name"
+  "source_image_id": "fd869u2laf181s38k2cr"
 }
 
