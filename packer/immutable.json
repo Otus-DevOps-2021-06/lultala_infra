@@ -1,0 +1,37 @@
+{
+    "variables": {
+        "folder_id": "",
+        "subnet_id": "",
+        "serv_accnt": "",
+        "source_image_id": ""
+    },
+    "builders": [
+        {
+            "type": "yandex",
+            "service_account_key_file": "{{user `key`}}",
+            "folder_id": "{{user `folder_id`}}",
+            "image_name": "{{user `image_name`}}",
+            "image_family": "reddit-full",
+            "ssh_username": "ubuntu",
+            "platform_id": "standard-v1",
+            "use_ipv4_nat": "true",
+            "source_image_id": "{{user `source_image_id`}}"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt-get install -y git",
+                "cd /home/ubuntu",
+                "git clone -b monolith https://github.com/express42/reddit.git",
+                "cd reddit && bundle install"
+            ]
+        },
+        {
+          "type": "shell",
+          "script": "files/autostart.sh",
+          "execute_command": "sudo {{.Path}}"
+        }
+    ]
+}
