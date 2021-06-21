@@ -1,6 +1,7 @@
 {
     "variables": {
         "folder_id": "b1gk3tej11gvdbgqdphj",
+        "key": "/home/lultala/keys/key.json",
         "source_image_id": "fd869u2laf181s38k2cr"
     },
     "builders": [
@@ -9,7 +10,7 @@
             "service_account_key_file": "{{ user `key` }}",
             "folder_id": "{{ user `folder_id` }}",
             "source_image_family": "ubuntu-1604-lts",
-            "image_name": "{{user `image_name`}}",
+            "image_name": "reddit-base-db",
             "image_family": "reddit-base",
             "ssh_username": "ubuntu",
             "platform_id": "standard-v1",
@@ -19,11 +20,6 @@
         }
     ],
     "provisioners": [
-        {
-            "type": "shell",
-            "script": "scripts/install_ruby.sh",
-            "execute_command": "sudo {{.Path}}"
-        },
         {
             "type": "shell",
             "script": "scripts/install_mongodb.sh",

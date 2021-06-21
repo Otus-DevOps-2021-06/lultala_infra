@@ -25,6 +25,14 @@ variable "private_key_path" {
 variable "region_id" {
   description = "Region id"
 }
-variable "number" {
-  description = "Virtual machine count"
+#variable "number" {
+#  description = "Virtual machine count"
+#}
+variable app_disk_image {
+description = "Disk image for reddit app"
+default = "reddit-app-base"
+}
+variable db_disk_image {
+description = "Disk image for reddit db"
+default = "reddit-db-base"
 }
