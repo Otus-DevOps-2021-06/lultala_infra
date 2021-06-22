@@ -15,10 +15,14 @@ testapp_port = 9292
 папка scripts - скрипты для install и деплоя приложения<br>
 в корне папки packer находятся json для запуска instance в yc с помощью команды packer build -var-file variables.json ./ubuntu16.json</p>
 
-<h2>Домашнее задание № 7</h2>
+<h2>Домашнее задание № 8</h2>
 <p>При выполнении домашнего задания было выполненно:</br>
 Создана новуя ветка terraform-1</br>
 Установлен Terraform</br>
 Созданы конфигурационные файлы Terraform: main.tf, terraform.tfstate, outputs.tf, variables.tf, terraform.tfvars, terraform.tfvars.example</br>
 Протестировано создание VM в yc с помощью terraform используя образ созданный Packer.</br>
 
+<h2> Домашнее задание 10</h1>
+<p>Пройдено изучение основ Ansible</br>
+При использовании команды `ansible app -m command -a 'rm -rf ~/reddit'`</br>
+Происходит удаление целевой папки `reddit` на хосте appserver</p>
