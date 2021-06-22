@@ -1,8 +1,6 @@
-#!/bin/bash
-
-sudo rm /var/lib/apt/lists/lock
-sudo rm /var/cache/apt/archives/lock
-sudo rm /var/lib/dpkg/lock*
-sudo dpkg --configure -a
 apt update
-apt install -y ruby-full ruby-bundler build-essential
+rm /var/lib/apt/lists/lock
+rm /var/cache/apt/archives/lock
+rm /var/lib/dpkg/lock
+rm /var/lib/dpkg/lock-frontend
+apt install -y ruby-full ruby-bundler build-essential dialog apt-utils
