@@ -7,5 +7,5 @@ terraform/key.json
 *.tfvars
 .terraform/
 *.retry
-jdauphant.nginx
+/ansible/roles/jdauphant.nginx
 .ansible
