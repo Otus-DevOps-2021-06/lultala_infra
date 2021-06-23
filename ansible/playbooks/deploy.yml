@@ -19,7 +19,12 @@
       bundler:
         state: present
         chdir: /home/ubuntu/reddit
+
+    - name: Show info about the env this host belongs to
+      debug:
+        msg: "This host is in {{ env }} environment!!!"
       
   handlers: #<-- добавим блок и задачу
   - name: reload puma
-    command: systemctl restart puma      
+    command: systemctl restart puma
+   

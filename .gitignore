@@ -7,4 +7,5 @@ terraform/key.json
 *.tfvars
 .terraform/
 *.retry
-/ansible/takeip.sh
+jdauphant.nginx
+.ansible
