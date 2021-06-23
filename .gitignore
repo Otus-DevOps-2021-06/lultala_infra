@@ -6,3 +6,5 @@ terraform/key.json
 *.tfstate.backup
 *.tfvars
 .terraform/
+*.retry
+/ansible/takeip.sh
