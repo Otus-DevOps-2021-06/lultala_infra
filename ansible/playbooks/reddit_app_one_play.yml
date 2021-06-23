@@ -13,7 +13,6 @@
         mode: 0644 # <-- Права на файл, которые нужно установить
       tags: db-tag
       notify: restart mongod
-    
     - name: Add unit file for Puma
       become: true
       copy:
@@ -21,22 +20,18 @@
         dest: /etc/systemd/system/puma.service
       tags: app-tag
       notify: reload systemd
-    
     - name: Add config for DB connection
       template:
         src: templates/db_config.j2
         dest: /home/ubuntu/db_config
       tags: app-tag
-    
     - name: enable puma
       become: true
       systemd: name=puma enabled=yes
       tags: app-tag
-      
 #    - name: install  git
 #      apt: name=git state=present  
 #      tags: deploy-tag
- 
     - name: Install git
       become: true
       apt:
@@ -44,7 +39,6 @@
         state: present
         update_cache: yes
       tags: deploy-tag
-      
     - name: Fetch the latest version of application code
       git:
         repo: 'https://github.com/express42/reddit.git'
@@ -52,13 +46,11 @@
         version: monolith # <-- Указываем нужную ветку
       tags: deploy-tag
       notify: reload puma
-
     - name: Bundle install
       bundler:
         state: present
         chdir: /home/ubuntu/reddit
       tags: deploy-tag
-      
   handlers: #<-- добавим блок и задачу
   - name: reload systemd
     become: yes
@@ -69,4 +61,3 @@
   - name: reload puma
     become: true
     command: systemctl restart puma
-...
