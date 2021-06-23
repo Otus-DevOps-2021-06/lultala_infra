@@ -69,3 +69,4 @@
   - name: reload puma
     become: true
     command: systemctl restart puma
+...
