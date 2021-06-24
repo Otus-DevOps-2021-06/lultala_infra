@@ -15,3 +15,4 @@ ansible/.molecule
 ansible/.cache
 ansible/.pytest_cache
 .ansible
+ansible/venv
