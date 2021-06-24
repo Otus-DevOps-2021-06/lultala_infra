@@ -1,14 +1,11 @@
-/packer/variables.json
-terraform/key.json
-
+packer/variables.json
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
 .terraform/
 *.retry
-/ansible/roles/jdauphant.nginx
-.ansible
+jdauphant.nginx
 # Vagrant & molecule
 .vagrant/
 *.log
@@ -16,3 +13,5 @@ terraform/key.json
 .molecule
 .cache
 .pytest_cache
+/ansible/roles/jdauphant.nginx
+.ansible
