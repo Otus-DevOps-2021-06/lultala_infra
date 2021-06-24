@@ -1,0 +1,19 @@
+---
+- name: Update repositories cache and install  package
+  become: yes
+  apt:
+    name: "*"
+    update_cache: yes
+  tags: ruby
+  
+- name: Install ruby and rubygems and required packages
+  become: true
+  apt: 
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - ruby-full
+    - ruby-bundler
+    - build-essential
+    - git
+  tags: ruby
