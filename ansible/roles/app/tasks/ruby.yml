@@ -5,14 +5,14 @@
     name: "*"
     update_cache: yes
   tags: ruby
-- name: Install ruby and rubygems and required packages
-  become: true
-  apt: 
+- name: Installing ruby, rubygems and git packages
+  tags:
+  - ruby
+  apt:
     name: "{{ item }}"
-    state: present
+    update_cache: yes
   with_items:
     - ruby-full
     - ruby-bundler
     - build-essential
     - git
-  tags: ruby
