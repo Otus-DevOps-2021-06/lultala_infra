@@ -1,3 +1,4 @@
+"""Role testing files using testinfra."""
 import os
 
 import testinfra.utils.ansible_runner
@@ -15,4 +16,10 @@ def test_mongo_running_and_enabled(host):
 def test_config_file(host):
     config_file = host.file('/etc/mongod.conf')
     assert config_file.contains('bindIp: 0.0.0.0')
+    assert config_file.contains('port: 27017')
     assert config_file.is_file
+
+
+def test_availability_of_the_address_and_port(host):
+    mongodb_addr = host.addr("0.0.0.0")
+    assert mongodb_addr.port(27017).is_reachable

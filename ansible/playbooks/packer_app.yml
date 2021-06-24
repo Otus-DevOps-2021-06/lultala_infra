@@ -1,11 +1,9 @@
----
-- name: Build application instance image
-  hosts: all
+- name: Configure App
+  hosts: app
   become: true
+
   roles:
-  - app
-
-
+    - app
 #- name: Install Ruby && Bundler
 #  hosts: all
 #  become: true

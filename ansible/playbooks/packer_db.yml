@@ -1,9 +1,10 @@
----
-- name: Build database instance image
-  hosts: all
+
+- name: Configure MongoDB
+  hosts: db
   become: true
+
   roles:
-  - db
+    - db
 
 
 #- name: Install MongoDB 3.2

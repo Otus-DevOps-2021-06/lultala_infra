@@ -4,3 +4,5 @@
 #  command: systemctl daemon-reload
 #- name: reload puma
 #  command: systemctl restart puma
+- name: reload puma
+  systemd: name=puma state=restarted
