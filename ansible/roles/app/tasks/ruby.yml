@@ -5,7 +5,6 @@
     name: "*"
     update_cache: yes
   tags: ruby
-  
 - name: Install ruby and rubygems and required packages
   become: true
   apt: 

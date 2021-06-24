@@ -63,4 +63,3 @@
   handlers: #<-- добавим блок и задачу
   - name: reload puma
     command: systemctl restart puma
-

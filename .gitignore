@@ -14,3 +14,4 @@ ansible/*.pyc
 ansible/.molecule
 ansible/.cache
 ansible/.pytest_cache
+.ansible
