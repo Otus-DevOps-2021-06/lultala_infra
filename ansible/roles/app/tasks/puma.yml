@@ -1,34 +1,17 @@
-# - name: Install git
-#   apt:
-#     name: git=2.17.1
-# #    state: latest
-#     update_cache: true
-#     install_recommends: true
-
-- name: Clone repo
-  git:
-    repo: https://github.com/express42/reddit.git
-    dest: "/home/{{ deploy_user }}/reddit"
-    version: monolith
-
-- name: bundle install
-  bundler:
-    state: present
-    chdir: "/home/{{ deploy_user }}/reddit"
-
-- name: Add unit file for Puma
+---
+- name: add unite file for puma
   template:
     src: puma.service.j2
     dest: /etc/systemd/system/puma.service
-  notify: enable puma
+  notify: reload puma
 
-- name: Add config for DB connection
+- name: copy config for DB connection
   template:
     src: db_config.j2
     dest: "/home/{{ deploy_user }}/db_config"
     owner: "{{ deploy_user }}"
     group: "{{ deploy_user }}"
-  notify: enable puma
 
 - name: enable puma
   systemd: name=puma enabled=yes
+...
