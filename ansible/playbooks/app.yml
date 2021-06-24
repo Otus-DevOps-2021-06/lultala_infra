@@ -1,4 +1,3 @@
----
 - name: Configure app
   hosts: app
   become: true

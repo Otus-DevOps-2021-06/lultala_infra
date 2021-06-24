@@ -1,12 +1,8 @@
-
 - name: Configure MongoDB
   hosts: db
   become: true
-
   roles:
     - db
-
-
 #- name: Install MongoDB 3.2
 #  hosts: all
 #  become: true
