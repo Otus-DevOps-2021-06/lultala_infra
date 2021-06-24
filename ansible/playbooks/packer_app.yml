@@ -1,16 +1,21 @@
 - name: Configure App
   hosts: app
   become: true
+
   roles:
     - app
 #- name: Install Ruby && Bundler
 #  hosts: all
 #  become: true
 #  tasks:
+#  # Установим в цикле все зависимости
 #  - name: Install ruby and rubygems and required packages
-#    apt: "name={{ item }} state=present"
-#    with_items:
+#    apt:
+#      pkg:
 #      - ruby-full
 #      - ruby-bundler
 #      - build-essential
 #      - git
+#      state: "present"
+#      update_cache: true
+#      install_recommends: true
