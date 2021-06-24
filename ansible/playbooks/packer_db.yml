@@ -1,21 +1,30 @@
-- name: Configure App
-  hosts: app
+- name: Configure MongoDB
+  hosts: db
   become: true
 
   roles:
-    - app
-#- name: Install Ruby && Bundler
+    - db
+    
+#- name: Install MongoDB
 #  hosts: all
 #  become: true
 #  tasks:
-#  # Установим в цикле все зависимости
-#  - name: Install ruby and rubygems and required packages
+#  - name: Add APT key
+#    apt_key:
+#      url: http://www.mongodb.org/static/pgp/server-4.2.asc
+#      
+#  - name: Add APT repository
+#    apt_repository:
+#      repo: deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse
+#      state: present
+#      
+#  - name: Install mongodb package
 #    apt:
-#      pkg:
-#      - ruby-full
-#      - ruby-bundler
-#      - build-essential
-#      - git
-#      state: "present"
-#      update_cache: true
-#      install_recommends: true
+#      name: mongodb-org
+#      update_cache: yes
+#      state: present
+#      
+#  - name: Configure service supervisor
+#    systemd:
+#      name: mongod
+#      enabled: yes
